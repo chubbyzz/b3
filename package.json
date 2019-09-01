@@ -1,0 +1,17 @@
+{
+  "name": "b3",
+  "version": "1.0.0",
+  "description": "a bovespa interface to get simple responses",
+  "main": "index.js",
+  "author": "jeff rossi",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
