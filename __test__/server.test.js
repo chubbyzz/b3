@@ -1,5 +1,6 @@
 const server = require('../../b3/lib/server');
-const mockAxios = require('./__mock__/axios');
+const axios = require('axios');
+jest.mock("axios");
 
 describe('format params', () => {
     it('should generate params url', () => {
@@ -46,8 +47,9 @@ describe('build url', () => {
 
 describe('b3 request', () => {
     it('should search a valid asset on b3', async () => {
+        const expectResponse =  require('./lren_response.json');;
         const response = await server.request('TIME_SERIES_INTRADAY', {symbol: 'LREN3.SAO', interval: '5min'});
-        const expectResponse = require('./__mock__/lren_response.json');
+        axios.get = jest.fn().mockResolvedValue(expectResponse);
         expect(response).toBe(expectResponse);
     });
 });
